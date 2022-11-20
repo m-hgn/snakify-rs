@@ -3,12 +3,10 @@ name = "snakify"
 version = "1.0.0"
 edition = "2021"
 
-authors = "m-hgn"
+authors = ["m-hgn"]
 description = "Quickly snake-caseify any input text"
 
 license = "GPL-3.0"
-
-license-file = "LICENSE"
 readme = "README.md"
 
 [dependencies]
