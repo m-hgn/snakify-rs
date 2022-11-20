@@ -22,7 +22,8 @@ total 0
 
 ### Installation
 
-Make sure you have a working [rust environment](https://rustup.rs/)!
+Make sure you have a working [rust environment](https://rustup.rs/),
+that supports [`#![feature(iter_intersperse)]`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.intersperse)
 
 Then execute the following commands in order.
 This assumes `/usr/bin` is on your `$PATH`:
