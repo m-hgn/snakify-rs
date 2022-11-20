@@ -10,4 +10,3 @@ license = "GPL-3.0"
 readme = "README.md"
 
 [dependencies]
-clap = { version = "4.0.26", features = ["derive"] }
