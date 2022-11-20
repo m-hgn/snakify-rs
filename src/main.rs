@@ -11,12 +11,9 @@ fn main() {
             if separators.contains(&c) {
                 '_'
             } else {
-                let x = c.to_lowercase().next();
-                x.expect(&format!(
-                    "Error: couldn't convert character to lowercase: `{}`",
-                    c
-                ));
-                x.unwrap()
+                c.to_lowercase().next().unwrap_or_else(|| {
+                    panic!("Error: couldn't convert character to lowercase: `{}`", c)
+                })
             }
         })
         .collect();
