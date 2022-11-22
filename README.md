@@ -31,7 +31,7 @@ This assumes `/usr/bin` is on your `$PATH`:
 1.
     Clone the repository.
     ```sh
-    git clone https://gitlab.com/m-hgn/snakify-rs.git
+    git clone https://gitlab.com/m-hgn/snakify.git
     ```
 2.
     Build the release executable.
@@ -46,6 +46,6 @@ This assumes `/usr/bin` is on your `$PATH`:
 4.
     Optional clean up
     ```sh
-    cd .. && rm -rf snakify-rs
+    cd .. && rm -rf snakify
     ```
 
