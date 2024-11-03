@@ -42,6 +42,7 @@ fn main() {
 
     let mut arg_warned = false;
     let mut output = String::new();
+    let mut last = '_';
     for arg in std::env::args().skip(1 + arg_start) {
         if !arg_warned
             && matches!(
@@ -55,11 +56,14 @@ fn main() {
             arg_warned = true;
         }
 
-        let last_was_separator = output.bytes().last().map(|x| x == b'_').unwrap_or(true);
         for c in arg.chars() {
             match c {
-                ' ' | '-' | '_' if last_was_separator => {}
-                ' ' | '-' | '_' => output.push('_'),
+                ' ' | '-' | '_' if last == '_' => {},
+                ' ' | '-' | '_' => {
+                    output.push('_');
+                    last = '_';
+                    continue;
+                },
 
                 'a'..='z' | 'A'..='Z' | '0'..='9' => output.push(c.to_ascii_lowercase()),
                 _ if flag == Some(Force) => output.push(c),
@@ -69,8 +73,13 @@ fn main() {
                     std::process::exit(1);
                 }
             }
+            last = c;
         }
-        output.push('_')
+
+        if last != '_' {
+            output.push('_');
+            last = '_';
+        }
     }
     output.pop();
 
